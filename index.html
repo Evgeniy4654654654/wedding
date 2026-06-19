@@ -3,123 +3,518 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Евгений & Злата</title>
+
+<title>Евгений & Злата — 04.09.2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body{
+
+:root{
+--ivory:#faf8f5;
+--champagne:#f5efe7;
+--lavender:#ece5fa;
+--accent:#b49ae4;
+--text:#2b2930;
+}
+
+*{
 margin:0;
-font-family:Arial,sans-serif;
-background:#faf8f5;
-color:#2c2930;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:var(--ivory);
+color:var(--text);
+overflow-x:hidden;
 }
 
 .hero{
 height:100vh;
-background:url('IMG_4226.jpeg') center/cover;
+background:
+linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.28)),
+url('IMG_4226.jpeg');
+background-size:cover;
+background-position:center;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+}
+
+.hero-box{
+padding:50px;
+border-radius:32px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.18);
 color:white;
 }
 
-.overlay{
-background:rgba(0,0,0,.3);
-padding:50px;
-border-radius:20px;
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:100px;
+font-weight:500;
+line-height:.9;
 }
 
-h1{
-font-size:72px;
-margin:0;
+.hero p{
+margin-top:18px;
+font-size:20px;
+letter-spacing:4px;
 }
 
-.date{
-font-size:24px;
-margin-top:20px;
+.button{
+display:inline-block;
+margin-top:30px;
+padding:16px 34px;
+border-radius:40px;
+background:white;
+color:#333;
+text-decoration:none;
+font-weight:500;
 }
 
 section{
-padding:80px 20px;
-max-width:1000px;
+padding:110px 20px;
+}
+
+.container{
+max-width:1150px;
 margin:auto;
 }
 
+.title{
+font-family:'Cormorant Garamond',serif;
+font-size:64px;
+text-align:center;
+margin-bottom:20px;
+}
+
+.text{
+max-width:800px;
+margin:auto;
+text-align:center;
+line-height:1.9;
+font-size:18px;
+}
+
 .gallery{
+margin-top:50px;
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:24px;
 }
 
 .gallery img{
 width:100%;
-border-radius:20px;
+height:520px;
+object-fit:cover;
+border-radius:24px;
+box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
 
-.btn{
+.timeline{
+display:grid;
+gap:18px;
+margin-top:40px;
+}
+
+.item{
+background:white;
+padding:24px;
+border-radius:22px;
+border-left:5px solid var(--accent);
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.item strong{
+color:#8b73c6;
+font-size:22px;
+}
+
+.palette{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.color{
+width:85px;
+height:85px;
+border-radius:50%;
+box-shadow:0 10px 20px rgba(0,0,0,.06);
+}
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.time{
+width:130px;
+height:130px;
+background:white;
+border-radius:24px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.time span{
+font-size:42px;
+font-weight:600;
+color:#8b73c6;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:28px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.telegram-btn{
 display:inline-block;
-padding:15px 30px;
-background:#9d85d8;
+margin-top:25px;
+padding:18px 36px;
+border-radius:50px;
+background:#9f86d8;
 color:white;
 text-decoration:none;
-border-radius:40px;
-margin-top:20px;
+font-size:18px;
 }
 
-.center{
+.footer{
+background:var(--champagne);
+padding:120px 20px;
 text-align:center;
 }
+
+.footer h2{
+font-family:'Cormorant Garamond',serif;
+font-size:72px;
+font-weight:500;
+}
+
+.monogram{
+margin-top:20px;
+font-size:90px;
+font-family:'Cormorant Garamond',serif;
+color:#8b73c6;
+}
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:none;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:64px;
+}
+
+.title{
+font-size:44px;
+}
+
+.gallery img{
+height:380px;
+}
+
+.footer h2{
+font-size:52px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-<div class="overlay">
-<h1>Евгений & Злата</h1>
-<div class="date">04 сентября 2026</div>
-</div>
+<header class="hero">
+
+<div class="hero-box">
+
+<h1>
+Евгений<br>
+&<br>
+Злата
+</h1>
+
+<p>04 сентября 2026</p>
+
+<a href="#invite" class="button">
+Открыть приглашение
+</a>
+
 </div>
 
-<section class="center">
-<h2>Приглашение</h2>
-<p>
+</header>
+
+<section id="invite">
+
+<div class="container fade">
+
+<h2 class="title">
+Дорогие родные и друзья
+</h2>
+
+<p class="text">
 Мы будем счастливы разделить с вами один из самых важных дней нашей жизни.
+Приглашаем вас стать частью нашего праздника любви, счастья и начала новой семейной истории.
 </p>
+
+</div>
 </section>
 
 <section>
-<h2 class="center">Наши фотографии</h2>
+
+<div class="container fade">
+
+<h2 class="title">
+Наша история
+</h2>
 
 <div class="gallery">
+
 <img src="IMG_4226.jpeg">
 <img src="IMG_5595.jpeg">
 <img src="IMG_5598.jpeg">
+
+</div>
+
 </div>
 
 </section>
 
-<section class="center">
-<h2>Место проведения</h2>
-<p>
-Villa Arcobaleno<br>
+<section>
+
+<div class="container fade">
+
+<h2 class="title">
+Программа дня
+</h2>
+
+<div class="timeline">
+
+<div class="item">
+<strong>13:00</strong><br>
+Сбор гостей и приветственный фуршет
+</div>
+
+<div class="item">
+<strong>14:00</strong><br>
+Торжественная свадебная церемония
+</div>
+
+<div class="item">
+<strong>15:00</strong><br>
+Праздничный банкет
+</div>
+
+<div class="item">
+<strong>Вечер</strong><br>
+Танцы, музыка и тёплые моменты
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container fade">
+
+<h2 class="title">
+Место проведения
+</h2>
+
+<div class="card">
+
+<h3>Villa Arcobaleno</h3>
+
+<p style="margin-top:15px;">
 г. Мытищи
 </p>
 
-<p>
-Начало фуршета: 13:00
+<p style="margin-top:10px;">
+Начало фуршета в 13:00
 </p>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="center">
-<h2>Подтверждение присутствия</h2>
+<section>
 
-<a class="btn"
+<div class="container fade">
+
+<h2 class="title">
+Дресс-код
+</h2>
+
+<p class="text">
+Будем рады видеть вас в светлых и пастельных оттенках.
+</p>
+
+<div class="palette">
+
+<div class="color" style="background:#faf7f2"></div>
+<div class="color" style="background:#f0e8de"></div>
+<div class="color" style="background:#ebe3fb"></div>
+<div class="color" style="background:#d8caf2"></div>
+<div class="color" style="background:#d7d0c2"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container fade">
+
+<h2 class="title">
+До свадьбы осталось
+</h2>
+
+<div class="countdown">
+
+<div class="time">
+<span id="days">0</span>
+<small>дней</small>
+</div>
+
+<div class="time">
+<span id="hours">0</span>
+<small>часов</small>
+</div>
+
+<div class="time">
+<span id="minutes">0</span>
+<small>минут</small>
+</div>
+
+<div class="time">
+<span id="seconds">0</span>
+<small>секунд</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container fade" style="text-align:center;">
+
+<h2 class="title">
+Подтверждение присутствия
+</h2>
+
+<p class="text">
+Пожалуйста, сообщите нам о вашем решении.
+</p>
+
+<a
+class="telegram-btn"
 href="https://t.me/S_evgeniy22?text=Здравствуйте!%20Подтверждаю%20присутствие%20на%20свадьбе%20Евгения%20и%20Златы.">
 Подтвердить присутствие
 </a>
 
+</div>
+
 </section>
+
+<footer class="footer">
+
+<h2>
+До встречи
+</h2>
+
+<p style="margin-top:15px;">
+04 сентября 2026
+</p>
+
+<div class="monogram">
+Е & З
+</div>
+
+</footer>
+
+<script>
+
+const targetDate =
+new Date("2026-09-04T13:00:00").getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+document.getElementById("days").innerHTML =
+Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours").innerHTML =
+Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("minutes").innerHTML =
+Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("seconds").innerHTML =
+Math.floor((distance%(1000*60))/1000);
+
+},1000);
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".fade")
+.forEach(el=>observer.observe(el));
+
+</script>
 
 </body>
 </html>
